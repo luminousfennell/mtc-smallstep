@@ -1,0 +1,3 @@
+* Installation
+- coq 8.3pl4 works, 8.4pl2 does not
+* Terminology
