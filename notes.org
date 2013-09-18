@@ -1,3 +1,39 @@
 * Installation
 - coq 8.3pl4 works, 8.4pl2 does not
-* Terminology
+* Terminology (Paper <-> Code)
+| Paper     | Code                     | Notes                                                                     |
+|-----------+--------------------------+---------------------------------------------------------------------------|
+| Algebra   | Algebra                  |                                                                           |
+| Algebra_M | MAlgebra                 |                                                                           |
+| Fix_M     | Fix                      |                                                                           |
+| fold_m    | mfold                    |                                                                           |
+| in_f      | in_t                     | (church encoded constructors for Fix ``datatype''; )                      |
+| fold      | fold_                    | (defined in terms of mfold)                                               |
+|           |                          | (fmap in_t is an ``pack top layer'' algebra, Algebra (Fix F) (F (Fix F))) |
+| out_f     | out_t                    | (fmap the in_t constructor and fold with it                               |
+| ⊕         | inj_Functor, or :+:      |                                                                           |
+| ≺:        | Sub_Functor, or :<:,     | MTC derives Functor instances for composition                             |
+| FAlg      | FAlgebra                 |                                                                           |
+| PAlg      | PAlgebra                 |                                                                           |
+| UP        | Universal_Property_fold  | Lemma for dir =>                                                          |
+|           | Universal_Property'_fold | Typeclass for dir <=                                                      |
+|           |                          | (has to be shown for a Fix/term, as they encode the fold)             |
+|           |                          |                                                                           |
+|-----------+--------------------------+---------------------------------------------------------------------------|
+* Defining language fragements
+1. Functor for syntax
+2. Abstract Superfunctor F (for parameters), include
+   Universal_Property'_P with UP'_F. Module Names.v has utilities
+3. Assume WF_Functor for the superfunctor (seems to be needed in some proofs)
+4. define smart (in Fix F) and smarter constructors (in e ∈ Fix F s.t
+   UP e) , (using inject' for the latter, includes UP)
+5. Define induction principles (PAlgebras (algebras, wrapped in a
+   class), relying on UPs of terms UP'_P, the UP-assuming version of a
+   property to be shown.
+* Type classes
+- [[http://coq.inria.fr/distrib/current/refman/Reference-Manual022.html#sec669][manual]]
+- Context is like =Variables= for class instances. The instance's
+  proof obligation are then added as parameters at the end of the
+  section, wherever the instance is needed.
+* Questions
+- why is a Set Name needed for FAlgebras?
