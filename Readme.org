@@ -2,5 +2,5 @@
 We try to use the [[http://www.cs.utexas.edu/~bendy/MTC/][Meta Theory a la Carte]] (MTC) library to develop a
 smallstep version of Arith + Lambda. The example developements of the
 MTC authors focus very much on bigstep/interpreter style
-definitions. Using reduction relation might simplify a few
+definitions. Using a reduction relation might simplify a few
 things. Let's see...
