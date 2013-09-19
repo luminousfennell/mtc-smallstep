@@ -5,6 +5,7 @@
 |-----------+--------------------------+---------------------------------------------------------------------------|
 | Algebra   | Algebra                  |                                                                           |
 | Algebra_M | MAlgebra                 |                                                                           |
+| t         | D                        | Abstract super-functor for types                                          |
 | Fix_M     | Fix                      |                                                                           |
 | fold_m    | mfold                    |                                                                           |
 | in_f      | in_t                     | (church encoded constructors for Fix ``datatype''; )                      |
@@ -17,7 +18,7 @@
 | PAlg      | PAlgebra                 |                                                                           |
 | UP        | Universal_Property_fold  | Lemma for dir =>                                                          |
 |           | Universal_Property'_fold | Typeclass for dir <=                                                      |
-|           |                          | (has to be shown for a Fix/term, as they encode the fold)             |
+|           |                          | (has to be shown for a Fix/term, as they encode the fold)                 |
 |           |                          |                                                                           |
 |-----------+--------------------------+---------------------------------------------------------------------------|
 * Defining language fragements
@@ -30,6 +31,7 @@
 5. Define induction principles (PAlgebras (algebras, wrapped in a
    class), relying on UPs of terms UP'_P, the UP-assuming version of a
    property to be shown.
+6. Some WT_Ind is needed... why?
 * Type classes
 - [[http://coq.inria.fr/distrib/current/refman/Reference-Manual022.html#sec669][manual]]
 - Context is like =Variables= for class instances. The instance's
@@ -37,3 +39,4 @@
   section, wherever the instance is needed.
 * Questions
 - why is a Set Name needed for FAlgebras?
+- WT_Ind... where is it mentioned in the paper?
